@@ -1,5 +1,6 @@
 html {
-	background: linear-gradient(blue, pink);
+	/* background: linear-gradient(blue, pink); */
+	background-image: url("https://images6.alphacoders.com/436/436481.jpg");
 	background-size: cover;
 	height: 100%;
 	min-height: 100%;
@@ -17,8 +18,8 @@ body {
 }
 
 form, #lists div {
-	border:1px solid #333;
-	background: rgba(255,255,255,.75);
+	border:5px dashed #2b92ce;
+	background: rgba(112, 202, 255,.95);
 	padding:15px 20px 18px 18px;
 	border-radius:5px;
 	margin:0 2% 2% 0;
@@ -54,7 +55,7 @@ input[type="text"], select {
 }
 
 input[type="submit"] {
-	background: linear-gradient(red, orange);
+	background: linear-gradient(#56efc4, #4cd3ad);
 	padding:5px 10px;
 	border:1px solid #333;
 	color:#000;
@@ -75,7 +76,8 @@ input[type="submit"]:hover {
 }
 
 h1 {
-	color:#fff;
+	font-family: Arial Black, Gadget, sans-serif;
+	color:#f4df42;
 	text-shadow: 2px 2px 0px #333;
 	margin:0 0 10px;
 	font-size:32px;
@@ -88,7 +90,7 @@ li {
 	font-size: 18px;
 	font-weight: normal;
 	margin:0 0 5px 0;
-	border-bottom:1px dotted #ccc;
+	border-bottom:1px dotted #f4df42;
 	padding:2px;
 }
 
@@ -99,7 +101,7 @@ select {
 
 button {
 	position: relative;
-	background: linear-gradient(red, orange);
+	background: linear-gradient(#56efc4, #4cd3ad);
 	border:1px solid #333;
 	color:#000;
 	border-radius:5px;

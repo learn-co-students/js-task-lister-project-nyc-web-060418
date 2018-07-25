@@ -7,41 +7,53 @@ document.addEventListener('DOMContentLoaded', () => {
   const mainContent = document.getElementById("main-content");
   const listForm = document.getElementById("create-list-form");
   const listTitle = document.getElementById("new-list-title");
-
   const listCollection = document.getElementById("lists");
 
 
-//// EVENT LISTENER
+
+//// EVENT LISTENERS
   mainContent.addEventListener("click", (event) =>{
     event.preventDefault();
 
     if (event.target.dataset.action === 'submit-list') {
       appContent.innerHTML = ""
 
-      if (store.lists.map(list => list.title).includes( listTitle.value )) {
+      if (store.lists.map(list => list.title.toLowerCase()).includes( listTitle.value.toLowerCase() )) {
         alert("Title must be unique!")
         appContent.innerHTML += renderTaskForm()
       } else {
         let newList = new List(listTitle.value)
 
         appContent.innerHTML += renderTaskForm()
-        listForm.reset()
       }
-
     }
+    listForm.reset()
+    return listsCollectionHTML()
+
+  });
+
+  appContent.addEventListener('click',(event) => {
+    event.preventDefault();
+
+    const parentList = document.getElementById("parent-list")
+    const taskDescrip = document.getElementById("new-task-description")
+    const taskPriority = document.getElementById("new-task-priority")
+    const taskForm = document.getElementById("create-task-form")
 
     if (event.target.dataset.action === 'submit-task') {
-      let parentList = document.getElementById("parent-list")
-      let taskDescrip = document.getElementById("new-task-description")
-      let taskPriority = document.getElementById("new-task-priority")
-      const taskForm = document.getElementById("create-task-form");
+
       let taskList = store.lists.find(list => list.title === parentList.value)
 
       let newTask = new Task(taskList, taskDescrip.value, taskPriority.value)
-
       taskForm.reset();
-
     }
+
+    return listsCollectionHTML()
+  });
+
+
+  listCollection.addEventListener('click', (event) =>{
+    event.preventDefault();
 
     if (event.target.dataset.action === 'delete-task') {
       let task = store.tasks.find(task => task.description === event.target.dataset.taskName)
@@ -52,13 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
       let list = store.lists.find(list => list.title === event.target.dataset.title)
       list.removeList()
     }
-
     return listsCollectionHTML()
-
-
   });
-
-
 
 
 //// ADDITIONAL FUNCTIONS
@@ -93,17 +100,14 @@ document.addEventListener('DOMContentLoaded', () => {
         `
   }
 
-function listsOptions(){
-  return store.lists.map(list => {
-    return `
-    <option value="${list.title}" selected>
-    ${list.title}
-    </option>
-      `
-  }).join("")
-}
-
-
-
+  function listsOptions(){
+    return store.lists.map(list => {
+      return `
+      <option value="${list.title}" selected>
+      ${list.title}
+      </option>
+        `
+    }).join("")
+  }
 
 });

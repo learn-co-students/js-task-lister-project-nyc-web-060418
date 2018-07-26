@@ -10,26 +10,27 @@ document.addEventListener('DOMContentLoaded', (event) => {
     new List(listTitle.value)
     renderTaskForm();
     renderLists();
-    listenToNewForm();
+    listenToTaskForm();
   })
 
   listArea.addEventListener("click", function (event) {
     if(event.target.dataset.action === "delete-list") {
       let listToDelete = store.lists.find(list => list.id === parseInt(event.target.dataset.id))
       listToDelete.removeList()
-      renderLists()
+      renderTaskForm();
+      renderLists();
     }
 
     if(event.target.dataset.action === "delete-task") {
       let taskToDelete = store.tasks.find(task => task.id === parseInt(event.target.dataset.id))
-      taskToDelete.removeTask()
-      renderLists()
+      taskToDelete.removeTask();
+      renderLists();
     }
   })
 
-  function listenToNewForm(){
+  function listenToTaskForm(){
     const taskForm = document.getElementById("create-task-form")
-    
+
     taskForm.addEventListener("submit", function (event) {
       event.preventDefault()
       const taskDescription = document.getElementById("new-task-description")
@@ -37,8 +38,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
       const taskList = document.getElementById("parent-list")
       let specificList = store.lists.find(list => list.id === parseInt(taskList.value))
       new Task(taskDescription.value, taskPriority.value, specificList)
-      
-      renderLists()
+
+      renderLists();
     })
   }
 

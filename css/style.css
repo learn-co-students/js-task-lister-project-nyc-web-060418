@@ -1,12 +1,13 @@
 html {
-	background: linear-gradient(blue, pink);
+
+	background-image: url("https://media.giphy.com/media/pO4UHglOY2vII/giphy.gif");
 	background-size: cover;
 	height: 100%;
 	min-height: 100%;
 }
 
 body {
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: "Comic Sans MS", cursive;
 	padding:20px;
 }
 
@@ -17,7 +18,7 @@ body {
 }
 
 form, #lists div {
-	border:1px solid #333;
+	border:20px dashed #70CDB4;
 	background: rgba(255,255,255,.75);
 	padding:15px 20px 18px 18px;
 	border-radius:5px;
@@ -54,10 +55,10 @@ input[type="text"], select {
 }
 
 input[type="submit"] {
-	background: linear-gradient(red, orange);
+	background: linear-gradient(beige, DarkCyan);
 	padding:5px 10px;
 	border:1px solid #333;
-	color:#000;
+	color:#3E5B65;
 	border-radius:5px;
 	box-shadow: 2px 2px 0px #666;
 	font-weight:bold;
@@ -75,11 +76,11 @@ input[type="submit"]:hover {
 }
 
 h1 {
-	color:#fff;
-	text-shadow: 2px 2px 0px #333;
+	color: #97D9E3;
+	text-shadow: 3px 3px 5px #2D4448;
 	margin:0 0 10px;
 	font-size:32px;
-	font-weight:bold;
+	font-weight: lighter;
 }
 
 li {
@@ -99,11 +100,11 @@ select {
 
 button {
 	position: relative;
-	background: linear-gradient(red, orange);
+	background: linear-gradient(#948188, #280A15);
 	border:1px solid #333;
-	color:#000;
+	color:#FEE0EB;
 	border-radius:5px;
-	box-shadow: 2px 2px 0px #666;
+
 	font-weight:bold;
 	top: -5px;
 }
@@ -121,7 +122,7 @@ button {
 #lists h2 {
 	font-size: 2em;
 	color: #26558b;
-	line-height: 22px;
+	line-height: 100%;
 	margin-bottom: 10px;
 }
 

@@ -1,7 +1,7 @@
 html {
 	/* background: linear-gradient(blue, pink); */
 	background-image: url("https://images6.alphacoders.com/436/436481.jpg");
-	background-size: cover;
+	background-size: contain, cover;
 	height: 100%;
 	min-height: 100%;
 }

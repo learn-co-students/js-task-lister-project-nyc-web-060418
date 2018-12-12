@@ -1,3 +1,5 @@
+const store = {lists:[], tasks:[]}
+
 class TaskLister {
   // your solution here
   render() {
